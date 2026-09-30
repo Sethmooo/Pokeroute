@@ -1,0 +1,34 @@
+[
+{
+    "route": "Route 1",
+    "pokemon": [
+        {"name": "Pidgey", "encounterPct": 50 },
+        {"name": "Rattata", "encounterPct": 50 }
+    ]
+
+},
+
+{
+    
+    "route": "Route 2",
+    "pokemon": [
+        {"name": "Pidgey", "encounterPct": 45 },
+        {"name": "Rattata", "encounterPct": 45 },
+        {"name": "Caterpie", "encounterPct": 5 },
+        {"name": "Weedle", "encounterPct": 5 }
+    ]
+},
+
+{
+     "route": "Route 3",
+    "pokemon": [
+        {"name": "Spearow", "encounterPct": 35 },
+        {"name": "Pidgey", "encounterPct": 30 },
+        {"name": "Nidoran♂", "encounterPct": 10 },
+        {"name": "Jigglypuff", "encounterPct": 10 },
+        {"name": "Mankey", "encounterPct": 10 },
+        {"name": "Nidoran♀", "encounterPct": 5 }
+    ]
+}
+
+]
