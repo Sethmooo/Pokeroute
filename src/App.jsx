@@ -1,10 +1,40 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import routesData from './routes.json';
 import './App.css'
 
 function App() {
 
   const [selectedRoute, setSelectedRoute] = useState(null);
+  const [pokemonWithSprites, setPokemonWithSprites] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+
+useEffect(() => {
+    if (!selectedRoute) return;
+
+    async function fetchSprites() {
+      setLoading(true);
+      try {
+        const updatedPokemon = await Promise.all(
+          selectedRoute.pokemon.map(async (poke) => {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke.name.toLowerCase()}`);
+            const data = await response.json();
+            return {
+              ...poke,
+              sprite: data.sprites.front_default,
+            };
+          })
+        );
+        setPokemonWithSprites(updatedPokemon);
+      } catch (error) {
+        console.error("Error fetching Pokémon sprites:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchSprites();
+  }, [selectedRoute]);
 
 
   return (
@@ -35,13 +65,18 @@ function App() {
             {selectedRoute ? (
               <div>
                 <h3>{selectedRoute.route} Encounters</h3>
+                {loading ? (
+                  <p>loading sprites...</p>
+                ) : ( 
                 <ul>
-                  {selectedRoute.pokemon.map((poke, index) => (
-                    <li key={index}>
-                      {poke.name} - {poke.encounterPct}%
+                  {pokemonWithSprites.map((poke, index) => (
+                    <li key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px'}} >
+                      {poke.sprite && <img src={poke.sprite} alt={poke.name} width="48" height="48" />}
+                      <span>{poke.name} - {poke.encounterPct}%</span>
                     </li>
                   ))}
                 </ul>
+                )}
               </div>
             ) : (
               <p>Click a route on the left to see wild Pokémon!</p>

@@ -24,10 +24,10 @@
     "pokemon": [
         {"name": "Spearow", "encounterPct": 35 },
         {"name": "Pidgey", "encounterPct": 30 },
-        {"name": "Nidoran♂", "encounterPct": 10 },
+        {"name": "Nidoran-m", "encounterPct": 10 },
         {"name": "Jigglypuff", "encounterPct": 10 },
         {"name": "Mankey", "encounterPct": 10 },
-        {"name": "Nidoran♀", "encounterPct": 5 }
+        {"name": "Nidoran-f", "encounterPct": 5 }
     ]
 }
 
