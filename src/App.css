@@ -7,8 +7,9 @@
 }
 
 header{
-  text-align: center;
-  margin-bottom: 60px;
+  text-align: right;
+  margin-bottom: 50px;
+  white-space: nowrap;
 }
 
 .dashboard-grid{
