@@ -11,7 +11,9 @@ header{
   margin-bottom: 50px;
   white-space: nowrap;
 }
-
+h1, h2, h3, h4, h5, h6 {
+  color: #1a1a1a;
+}
 
 body {
   background-color: #ffffff;
